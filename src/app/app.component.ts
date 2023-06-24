@@ -1,6 +1,13 @@
-import { Component } from '@angular/core';
+import {Component, NgModule} from '@angular/core';
 import { Manga } from '../manga.model';
 import { CartService } from '../cart.service';
+import { LoginComponent } from './login/login.component';
+import { SharedService } from '../shared.service';
+import {RegistrationComponent} from "./registration/registration.component";
+import {BrowserModule} from "@angular/platform-browser";
+import {RouterModule} from "@angular/router";
+import {FormsModule} from "@angular/forms";
+import {HttpClientModule} from "@angular/common/http";
 
 @Component({
   selector: 'app-root',
@@ -20,7 +27,7 @@ export class AppComponent {
 
   cartItems: { manga: Manga, quantity: number }[] = [];
 
-  constructor(private cartService: CartService) {}
+  constructor(private cartService: CartService, private sharedService: SharedService) {}
 
   addToCart(manga: Manga) {
     this.cartService.addToCart(manga);
@@ -46,7 +53,8 @@ export class AppComponent {
   }
 
   isLoggedIn() {
-    return true;
+    console.log("is logged in pozvano u app.component.ts, vrijednost je " + this.sharedService.isLogged)
+    return this.sharedService.isLogged;
   }
 }
 

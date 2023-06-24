@@ -5,10 +5,10 @@ import { AppComponent } from './app.component';
 import { LoginComponent } from './login/login.component';
 import { RegistrationComponent } from './registration/registration.component';
 import {FormsModule} from "@angular/forms";
+import { HttpClientModule } from '@angular/common/http';
 
 const routes: Routes = [
-  { path: '', redirectTo: '/mangas', pathMatch: 'full' },
-  { path: 'mangas', component: AppComponent },
+  { path: '', redirectTo: '/login', pathMatch: 'full' },
   { path: 'login', component: LoginComponent },
   { path: 'registration', component: RegistrationComponent },
 ];
@@ -22,7 +22,8 @@ const routes: Routes = [
   imports: [
     BrowserModule,
     RouterModule.forRoot(routes),
-    FormsModule
+    FormsModule,
+    HttpClientModule
   ],
   providers: [],
   bootstrap: [AppComponent]

@@ -4,6 +4,10 @@ const cors = require('cors');
 const app = express();
 const PORT = 3000;
 const mongoose = require('mongoose');
+const usersRouter = require('./users');
+
+// Use the users router
+app.use('/users', usersRouter);
 
 app.use(bodyParser.json());
 app.use(cors());
@@ -41,6 +45,7 @@ app.post('/register', async (req, res) => {
 
     // Create a new user
     const newUser = new User({ email, password: hashedPassword });
+    //TODO: error na save
     await newUser.save();
 
     res.status(201).json({ message: 'Registration successful' });
