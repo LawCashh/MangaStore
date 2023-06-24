@@ -24,6 +24,7 @@ export class LoginComponent {
         console.log('Login successful');
         this.authService.setLoggedIn(true); // Call the setLoggedIn() method
         this.sharedService.isLogged = true;
+        this.sharedService.email = email;
       },
       (error) => {
         // Login failed

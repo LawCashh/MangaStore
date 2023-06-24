@@ -6,7 +6,6 @@ import { HttpClient } from '@angular/common/http';
 })
 export class AuthService {
   private loggedIn = false;
-
   constructor(private http: HttpClient) { }
 
   register(email: string, password: string) {

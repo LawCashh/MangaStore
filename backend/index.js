@@ -82,3 +82,38 @@ app.post('/login', async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 });
+
+app.post('/purchases', async (req, res) => {
+  try {
+    const { titles, totalPrice, email } = req.body;
+
+    // Save the purchase in the database
+    // Adjust the logic as per your specific database setup
+    // Example code assuming you have a Purchase model/schema
+    const Purchase = require('./models/Purchase');
+    const purchase = new Purchase({
+      titles,
+      totalPrice,
+      email
+    });
+    await purchase.save();
+
+    res.status(201).json({ message: 'Purchase saved successfully' });
+  } catch (error) {
+    console.error('Error saving purchase', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});
+
+app.get('/purchases', async (req, res) => {
+  try {
+    // Find all purchases
+    const Purchase = require('./models/Purchase');
+    const purchases = await Purchase.find();
+
+    res.status(200).json(purchases);
+  } catch (error) {
+    console.error('Error retrieving purchases', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+});

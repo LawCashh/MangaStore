@@ -3,6 +3,7 @@ import { Manga } from '../manga.model';
 import { CartService } from '../cart.service';
 import { LoginComponent } from './login/login.component';
 import { SharedService } from '../shared.service';
+import { PurchaseService } from "./purchase.service";
 import {RegistrationComponent} from "./registration/registration.component";
 import {BrowserModule} from "@angular/platform-browser";
 import {RouterModule} from "@angular/router";
@@ -27,7 +28,7 @@ export class AppComponent {
 
   cartItems: { manga: Manga, quantity: number }[] = [];
 
-  constructor(private cartService: CartService, private sharedService: SharedService) {}
+  constructor(private cartService: CartService, private sharedService: SharedService, private purchaseService: PurchaseService) {}
 
   addToCart(manga: Manga) {
     this.cartService.addToCart(manga);
@@ -45,11 +46,17 @@ export class AppComponent {
 
   purchase() {
     const cartItems = this.getCartItems();
-
-    // Make an API call to the backend to process the purchase
-    // Send the cartItems to the backend
-
-    this.cartService.clearCart();
+    const totalPrice = this.cartService.calculateTotalPrice();
+    this.purchaseService.purchaseMangas().subscribe(
+      (response) => {
+        console.log('Purchase successful', response);
+        // Clear the cart after successful purchase
+        this.cartService.clearCart();
+      },
+      (error) => {
+        console.error('Purchase failed', error);
+      }
+    );
   }
 
   isLoggedIn() {
