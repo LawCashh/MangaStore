@@ -21,14 +21,15 @@ export class LoginComponent {
     this.authService.login(email, password).subscribe(
       (response) => {
         // Login successful
-        console.log('Login successful');
-        this.authService.setLoggedIn(true); // Call the setLoggedIn() method
+        console.log('Login uspjesan');
+        window.alert('Login uspjesan')
+        this.authService.setLoggedIn(true);
         this.sharedService.isLogged = true;
         this.sharedService.email = email;
         this.logged = true;
       },
       (error) => {
-        // Login failed
+        window.alert("login neuspjesan");
         console.error('Login failed', error);
         this.sharedService.isLogged = false;
         this.sharedService.email = "";

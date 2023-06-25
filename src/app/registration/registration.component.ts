@@ -16,11 +16,12 @@ export class RegistrationComponent {
   register() {
     this.authService.register(this.email, this.password).subscribe(
       (response) => {
+        window.alert("Registracija uspjesna");
         console.log('Registracija uspjela');
         this.router.navigateByUrl('/login');
       },
       (error) => {
-        // Registration failed
+        window.alert("Registracija neuspjesna");
         console.error('Registracija neuspjesna', error);
       }
     );

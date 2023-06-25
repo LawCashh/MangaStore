@@ -1,0 +1,36 @@
+.registration-title{
+  display: flex;
+  justify-content: center;
+}
+
+.registration-form{
+  padding-top: 10px;
+  background-color: lightgray;
+  border-radius: 3%;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  width: 400px;
+  margin: 0 auto;
+}
+
+.email, .password{
+  margin: 10px 10px;
+  width: 60%;
+  height: 35px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.email input, .password input {
+  padding: 5px;
+}
+
+.register-button{
+  margin-bottom: 10px;
+  border: 2px solid gray;
+  background-color: white;
+  padding: 5px;
+}

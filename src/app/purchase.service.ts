@@ -19,9 +19,6 @@ export class PurchaseService {
     const titles = this.cartService.getCartTitles().toString().slice(1);
     const totalPrice = this.cartService.calculateTotalPrice();
     const email = this.sharedService.email;
-
-    // Make the API call to store the purchase in the database
-    // Adjust the API endpoint as per your server configuration
     return this.http.post('http://localhost:3000/purchases', { titles, totalPrice, email });
   }
 }

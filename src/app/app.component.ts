@@ -19,11 +19,11 @@ import {HttpClientModule} from "@angular/common/http";
 export class AppComponent {
   title = 'mangastore';
   mangas: Manga[] = [
-    { title: 'Naruto', author: 'Masashi', price: 10 },
-    { title: 'Bleach', author: 'Author 2', price: 15 },
-    { title: 'Tokyo Ghoul', author: 'Author 3', price: 20 },
-    { title: 'One Piece', author: 'Author 4', price: 12 },
-    { title: 'FMAB', author: 'Author 5', price: 18 }
+    { title: 'Naruto', author: 'Masashi', price: 10 , imgUrl: "../assets/images/naruto.jpeg"},
+    { title: 'Bleach', author: 'Author 2', price: 15, imgUrl: "../assets/images/bleach.jpeg" },
+    { title: 'Tokyo Ghoul', author: 'Author 3', price: 20, imgUrl: "../assets/images/tokyoghoul.jpg"},
+    { title: 'One Piece', author: 'Author 4', price: 12, imgUrl: "../assets/images/onepiece.jpeg" },
+    { title: 'FMAB', author: 'Author 5', price: 18 , imgUrl: "../assets/images/fma.jpg"}
   ];
   loginPressed: boolean = false;
 
@@ -46,16 +46,16 @@ export class AppComponent {
   }
 
   purchase() {
-    const cartItems = this.getCartItems();
+    const cartTitles = this.cartService.getCartTitles().toString().slice(1);;
     const totalPrice = this.cartService.calculateTotalPrice();
     this.purchaseService.purchaseMangas().subscribe(
       (response) => {
-        console.log('Purchase successful', response);
-        // Clear the cart after successful purchase
+        console.log('Kupovina uspjesna ', response);
+        window.alert('Kupovina uspjesna\nNarucili ste: ' + cartTitles + "\nUkupna cijena: " + totalPrice + " eura.");
         this.cartService.clearCart();
       },
       (error) => {
-        console.error('Purchase failed', error);
+        console.error('Kupovina neuspjesna ', error);
       }
     );
   }

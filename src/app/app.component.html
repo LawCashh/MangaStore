@@ -1,8 +1,10 @@
-<h1>Welcome to the Manga Store!</h1>
+<div class="header">
+  <h1 class="title">Dobrodosli u Manga Prodavnicu</h1>
 
-<div *ngIf="!loginPressed">
-  <a routerLink="/login" (click)="removeLoginRegister()">Login</a> |
-  <a routerLink="/registration">Registration</a>
+  <div *ngIf="!loginPressed" class="login-register-buttons">
+    <a routerLink="/login" (click)="removeLoginRegister()">Login</a> |
+    <a routerLink="/registration">Registration</a>
+  </div>
 </div>
 <!--<div *ngIf="loginPressed">-->
 <!--  <button (click)="goBackButton()">Go Back</button>-->
@@ -10,19 +12,29 @@
 
 <router-outlet></router-outlet>
 
-<h2>Book List</h2>
-<ul>
-  <li *ngFor="let manga of mangas">
-    {{ manga.title }} - {{ manga.author }} - ${{ manga.price }}
-    <button (click)="addToCart(manga)">Add to Cart</button>
+<h2 class="mange-title">Mange</h2>
+<ul class="lista-mangi">
+  <li class="manga" *ngFor="let manga of mangas">
+    <div>
+      <span class="manga-title">{{ manga.title }}</span>
+      <span class="autor-title">{{ manga.author }}</span>
+      <span class="cijena-title">{{ manga.price }}e</span>
+    </div>
+    <img src="{{manga.imgUrl}}">
+    <button class="dodajukorpu-dugme"(click)="addToCart(manga)">Dodaj u korpu</button>
   </li>
 </ul>
 
-<h2>Cart</h2>
-<ul>
-  <li *ngFor="let item of getCartItems()">
-    {{ item.title }} - {{ item.author }} - ${{ item.price }}
+<h2 class="korpa-title">Korpa</h2>
+<ul class="lista-mangi">
+  <li class="manga" *ngFor="let item of getCartItems()">
+    <div>
+      <span class="manga-title">{{ item.title }}</span>
+      <span class="autor-title">{{ item.author }}</span>
+      <span class="cijena-title">{{ item.price }}</span>
+    </div>
+    <img src="{{item.imgUrl}}">
   </li>
 </ul>
 
-<button (click)="purchase()" *ngIf="getCartItems().length > 0 && isLoggedIn()">Purchase</button>
+<button class="dugme-kupi" (click)="purchase()" *ngIf="getCartItems().length > 0 && isLoggedIn()">Kupi</button>

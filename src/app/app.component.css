@@ -1,0 +1,86 @@
+body{
+  font-family: sans-serif;
+}
+.header {
+  background-color: lightgray;
+  display: flex;
+  align-items: center;
+}
+.title {
+  display: flex;
+  justify-content: center;
+  flex-grow: 1;
+  margin-left: 30px;
+}
+a {
+  text-decoration: none;
+  color: inherit;
+  cursor: pointer;
+}
+a:hover{
+  color: gray;
+}
+.login-register-buttons{
+  position: absolute;
+  right: 20px;
+  margin-left: auto;
+  margin-right: 10px;
+}
+
+.mange-title, .korpa-title{
+  display: flex;
+  justify-content: center;
+}
+
+.lista-mangi{
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  flex-wrap: wrap;
+  padding-left: 0;
+}
+
+.manga{
+  display: flex;
+  flex-direction: column;
+  justify-content: space-around;
+  align-items: center;
+  width: 300px;
+  height: 500px;
+  padding: 10px;
+  margin: 10px auto;
+  list-style: none;
+  background-color: lightgray;
+  border-radius: 3%;
+}
+
+.manga div {
+  font-size: 20px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.manga div span{
+  margin: 5px 0px;
+}
+
+.dodajukorpu-dugme, .dugme-kupi{
+  padding: 10px 20px;
+  border: none;
+  cursor: pointer;
+  border: 2px solid gray;
+  background-color: white;
+}
+
+.dugme-kupi{
+  display: block;
+  margin: 0 auto;
+}
+
+.manga img{
+  width: 60%;
+  height: 60%;
+}

@@ -32,7 +32,6 @@ export class CartService {
   }
 
   calculateTotalPrice(): number {
-    console.log("pozvano calculatetotalprice, totalprice korpe je " + this.totalPrice);
     return this.totalPrice;
   }
 }
