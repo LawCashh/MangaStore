@@ -16,7 +16,7 @@ export class PurchaseService {
   ) {}
 
   purchaseMangas() {
-    const titles = this.cartService.getCartTitles();
+    const titles = this.cartService.getCartTitles().toString().slice(1);
     const totalPrice = this.cartService.calculateTotalPrice();
     const email = this.sharedService.email;
 

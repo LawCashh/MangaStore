@@ -1,9 +1,12 @@
 <h1>Welcome to the Manga Store!</h1>
 
-<div>
-  <a routerLink="/login">Login</a> |
+<div *ngIf="!loginPressed">
+  <a routerLink="/login" (click)="removeLoginRegister()">Login</a> |
   <a routerLink="/registration">Registration</a>
 </div>
+<!--<div *ngIf="loginPressed">-->
+<!--  <button (click)="goBackButton()">Go Back</button>-->
+<!--</div>-->
 
 <router-outlet></router-outlet>
 

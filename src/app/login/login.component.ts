@@ -11,8 +11,8 @@ export class LoginComponent {
   email: string = "";
   password: string = "";
   logged: boolean = false;
-  constructor(private authService: AuthService, private sharedService: SharedService) {}
-
+  loginPressed:boolean = false;
+  constructor(private authService: AuthService, public sharedService: SharedService) {}
   login() {
     const email = this.email; // Replace with actual email input value
     const password = this.password; // Replace with actual password input value
@@ -25,11 +25,19 @@ export class LoginComponent {
         this.authService.setLoggedIn(true); // Call the setLoggedIn() method
         this.sharedService.isLogged = true;
         this.sharedService.email = email;
+        this.logged = true;
       },
       (error) => {
         // Login failed
         console.error('Login failed', error);
+        this.sharedService.isLogged = false;
+        this.sharedService.email = "";
+        this.logged = false;
       }
     );
+  }
+
+  odjavljivanje() {
+    window.location.reload();
   }
 }

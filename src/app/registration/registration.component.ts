@@ -1,5 +1,6 @@
 import { Component } from '@angular/core';
 import { AuthService } from '../auth.service';
+import { Router } from "@angular/router";
 
 @Component({
   selector: 'app-registration',
@@ -10,18 +11,17 @@ export class RegistrationComponent {
   email: string = "";
   password: string = "";
 
-  constructor(private authService: AuthService) {}
+  constructor(private authService: AuthService, private router: Router) {}
 
   register() {
     this.authService.register(this.email, this.password).subscribe(
       (response) => {
-        // Registration successful
-        console.log('Registration successful');
-        // Perform any additional actions after successful registration
+        console.log('Registracija uspjela');
+        this.router.navigateByUrl('/login');
       },
       (error) => {
         // Registration failed
-        console.error('Registration failed', error);
+        console.error('Registracija neuspjesna', error);
       }
     );
   }

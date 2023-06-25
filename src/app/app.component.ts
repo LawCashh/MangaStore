@@ -25,6 +25,7 @@ export class AppComponent {
     { title: 'One Piece', author: 'Author 4', price: 12 },
     { title: 'FMAB', author: 'Author 5', price: 18 }
   ];
+  loginPressed: boolean = false;
 
   cartItems: { manga: Manga, quantity: number }[] = [];
 
@@ -59,8 +60,14 @@ export class AppComponent {
     );
   }
 
+  removeLoginRegister() {
+    this.loginPressed = true;
+    this.sharedService.loginPressed = true;
+  }
+  // goBackButton() {
+  //   this.loginPressed = false;
+  // }
   isLoggedIn() {
-    console.log("is logged in pozvano u app.component.ts, vrijednost je " + this.sharedService.isLogged)
     return this.sharedService.isLogged;
   }
 }

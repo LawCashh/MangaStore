@@ -1,5 +1,5 @@
-<h2>Login</h2>
-<form (ngSubmit)="login()">
+<h2 *ngIf="!logged && sharedService.loginPressed">Login</h2>
+<form (ngSubmit)="login()" *ngIf="!logged && sharedService.loginPressed">
   <div>
     <label for="email">Email</label>
     <input type="email" id="email" [(ngModel)]="email" name="email" required>
@@ -10,3 +10,6 @@
   </div>
   <button type="submit">Login</button>
 </form>
+<div *ngIf="logged">
+  <button (click)="odjavljivanje()">Odjavi se</button>
+</div>

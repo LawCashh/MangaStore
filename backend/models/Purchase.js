@@ -1,8 +1,8 @@
 const mongoose = require('mongoose');
 
 const purchaseSchema = new mongoose.Schema({
-  title: {
-    type: [String],
+  titles: {
+    type: String,
     required: true
   },
   totalPrice: {

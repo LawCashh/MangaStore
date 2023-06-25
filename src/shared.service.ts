@@ -6,4 +6,5 @@ import { Injectable } from '@angular/core';
 export class SharedService {
   isLogged: boolean = false;
   email: string = "";
+  loginPressed: boolean = false;
 }

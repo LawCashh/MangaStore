@@ -86,7 +86,6 @@ app.post('/login', async (req, res) => {
 app.post('/purchases', async (req, res) => {
   try {
     const { titles, totalPrice, email } = req.body;
-
     // Save the purchase in the database
     // Adjust the logic as per your specific database setup
     // Example code assuming you have a Purchase model/schema
