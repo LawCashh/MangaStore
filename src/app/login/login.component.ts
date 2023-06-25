@@ -14,13 +14,12 @@ export class LoginComponent {
   loginPressed:boolean = false;
   constructor(private authService: AuthService, public sharedService: SharedService) {}
   login() {
-    const email = this.email; // Replace with actual email input value
-    const password = this.password; // Replace with actual password input value
+    const email = this.email;
+    const password = this.password;
     console.log("email je " + email);
 
     this.authService.login(email, password).subscribe(
       (response) => {
-        // Login successful
         console.log('Login uspjesan');
         window.alert('Login uspjesan')
         this.authService.setLoggedIn(true);
@@ -30,7 +29,7 @@ export class LoginComponent {
       },
       (error) => {
         window.alert("login neuspjesan");
-        console.error('Login failed', error);
+        console.error('Login neuspjesan', error);
         this.sharedService.isLogged = false;
         this.sharedService.email = "";
         this.logged = false;
