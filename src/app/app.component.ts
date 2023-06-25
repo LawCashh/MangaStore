@@ -20,10 +20,10 @@ export class AppComponent {
   title = 'mangastore';
   mangas: Manga[] = [
     { title: 'Naruto', author: 'Masashi', price: 10 , imgUrl: "../assets/images/naruto.jpeg"},
-    { title: 'Bleach', author: 'Author 2', price: 15, imgUrl: "../assets/images/bleach.jpeg" },
-    { title: 'Tokyo Ghoul', author: 'Author 3', price: 20, imgUrl: "../assets/images/tokyoghoul.jpg"},
-    { title: 'One Piece', author: 'Author 4', price: 12, imgUrl: "../assets/images/onepiece.jpeg" },
-    { title: 'FMAB', author: 'Author 5', price: 18 , imgUrl: "../assets/images/fma.jpg"}
+    { title: 'Bleach', author: 'Autor 2', price: 15, imgUrl: "../assets/images/bleach.jpeg" },
+    { title: 'Tokyo Ghoul', author: 'Autor 3', price: 20, imgUrl: "../assets/images/tokyoghoul.jpg"},
+    { title: 'One Piece', author: 'Autor 4', price: 12, imgUrl: "../assets/images/onepiece.jpeg" },
+    { title: 'FMAB', author: 'Autor 5', price: 18 , imgUrl: "../assets/images/fma.jpg"}
   ];
   loginPressed: boolean = false;
 
